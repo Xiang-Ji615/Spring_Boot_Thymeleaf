@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot Thymeleaf Hello World Example</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+<link rel="stylesheet" type="text/css"
+	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<link rel="stylesheet" th:href="@{/css/main.css}"
+	href="../../css/main.css" />
+
+
+
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Spring Boot</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#about">About</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+
+		<div class="starter-template">
+			<h1>Spring Boot Web Thymeleaf Example</h1>
+			<h2>
+				<span th:text="'Message: ' + ${message}"></span>
+			</h2>
+			<h1 th:text="'JJ Template source works' + ${propertyMsg}"></h1>
+		</div>
+
+		<!--  div th:each="element : ${listData}">
+			<h1 th:text="${element}">JJ List Data</h1>
+		</div -->
+		<h1 th:text="${element}">JJ List Data</h1>
+		<p th:text="#{msg.welcome}" class="alert alert-danger">Welcome
+			everyone!</p>
+
+		<p th:text="#{jj.msg}" class="alert alert-danger">Welcome
+			everyone!</p>
+
+		<div th:object="${user}">
+			<h4 th:text="*{username}">username</h4>
+			<h4 th:text="*{password}">password</h4>
+			<h4 th:text="*{gender}">gender</h4>
+		</div>
+		
+		<a href="user.html" th:href="@{http://localhost:8080/user/details(userId=${user.username},password=!${user.gender}?'JJ Password':${user.password})}">View User</a>
+		<h1 th:text="${user.username == 'abc'}? 'Username right':'Wrong username'"></h1>
+	</div>
+
+
+	<!-- /.container -->
+
+	<script type="text/javascript"
+		src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
