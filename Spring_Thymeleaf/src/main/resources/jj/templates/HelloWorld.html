@@ -59,6 +59,8 @@
 		
 		<a href="user.html" th:href="@{http://localhost:8080/user/details(userId=${user.username},password=!${user.gender}?'JJ Password':${user.password})}">View User</a>
 		<h1 th:text="${user.username == 'abc'}? 'Username right':'Wrong username'"></h1>
+		
+		<h1 hello:sayto="JJ processor works well" />
 	</div>
 
 
